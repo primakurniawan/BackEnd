@@ -5,30 +5,46 @@ import "fmt"
 func BinarySearch(array []int, x int) {
 
 	// your code here
-	l, r := 0, len(array)-1
+	// l, r := 0, len(array)-1
 
-	if x > array[len(array)-1] || x < array[0] {
-		fmt.Println(-1)
-		return
-	} else if array[l] == x {
-		fmt.Println(l)
-		return
-	} else if array[r] == x {
-		fmt.Println(r)
-		return
-	} else {
-		for l+1 != r {
-			if array[(l+r)/2] == x {
-				fmt.Println((l + r) / 2)
-				return
-			} else if array[(l+r)/2] < x {
-				l = (l + r) / 2
-			} else {
-				r = (l + r) / 2
-			}
+	// if x > array[len(array)-1] || x < array[0] {
+	// 	fmt.Println(-1)
+	// 	return
+	// } else if array[l] == x {
+	// 	fmt.Println(l)
+	// 	return
+	// } else if array[r] == x {
+	// 	fmt.Println(r)
+	// 	return
+	// } else {
+	// 	for l+1 != r {
+	// 		if array[(l+r)/2] == x {
+	// 			fmt.Println((l + r) / 2)
+	// 			return
+	// 		} else if array[(l+r)/2] < x {
+	// 			l = (l + r) / 2
+	// 		} else {
+	// 			r = (l + r) / 2
+	// 		}
+	// 	}
+	// }
+
+	// fmt.Println(-1)
+	// return
+	l := 0
+	r := len(array) - 1
+
+	for l <= r {
+		m := (l + r) / 2
+		if x > array[m] {
+			l = m + 1
+		} else if x < array[m] {
+			r = m - 1
+		} else {
+			fmt.Println(m)
+			return
 		}
 	}
-
 	fmt.Println(-1)
 	return
 }
